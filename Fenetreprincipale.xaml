@@ -1,0 +1,120 @@
+﻿<Window x:Class="PtiBoulot.FenetrePrincipale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="P'tiBoulot"
+        Width="1280" Height="800"
+        MinWidth="1000" MinHeight="600"
+        WindowStartupLocation="CenterScreen"
+        Icon="logo.ico">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- SIDEBAR -->
+        <Border Grid.Column="0" Background="#F8FAFC"
+                BorderBrush="#E2E8F0" BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Logo -->
+                <Border Grid.Row="0" Padding="20,24,20,20"
+                        BorderBrush="#E2E8F0" BorderThickness="0,0,0,1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🧰" FontSize="24" Margin="0,0,10,0"
+                                   VerticalAlignment="Center"/>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="P'tiBoulot" FontSize="16" FontWeight="Bold"
+                                       Foreground="#1E293B"/>
+                            <TextBlock Text="Services au Gabon" FontSize="11"
+                                       Foreground="#64748B"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- Label navigation + cloche -->
+                <Grid Grid.Row="1" Margin="20,16,20,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="NAVIGATION" FontSize="10"
+                   FontWeight="SemiBold" Foreground="#94A3B8"
+                   VerticalAlignment="Center"/>
+                    <Button Grid.Column="1" x:Name="BtnNotifications"
+                    Click="BtnNotifications_Click"
+                    Background="Transparent" BorderThickness="0"
+                    Cursor="Hand" Padding="4">
+                        <Grid>
+                            <TextBlock Text="🔔" FontSize="16"/>
+                            <Border x:Name="BadgeNotif"
+                            Background="#EF4444" CornerRadius="8"
+                            Width="16" Height="16"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Margin="0,0,-4,-4"
+                            Visibility="Collapsed">
+                                <TextBlock x:Name="TxtBadgeNotif"
+                           FontSize="9" FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Button>
+                </Grid>
+
+                <!-- Items navigation -->
+                <StackPanel Grid.Row="2" x:Name="NavPanel" Margin="10,0"/>
+
+                <!-- Utilisateur + Déconnexion -->
+                <Border Grid.Row="3" Padding="12,12,12,16"
+                        BorderBrush="#E2E8F0" BorderThickness="0,1,0,0">
+                    <StackPanel>
+                        <!-- Info utilisateur -->
+                        <Border Background="White" CornerRadius="10" Padding="12" Margin="0,0,0,8"
+                            BorderBrush="#E2E8F0" BorderThickness="1"
+                            Cursor="Hand"
+                            MouseDown="CarteUtilisateur_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Border x:Name="AvatarBorder" Width="36" Height="36"
+                CornerRadius="18" Margin="0,0,10,0">
+                                    <TextBlock x:Name="TxtAvatar" FontSize="14"
+                       FontWeight="Bold" Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="TxtNomUtilisateur"
+                       FontSize="13" FontWeight="SemiBold"
+                       Foreground="#1E293B"/>
+                                    <TextBlock x:Name="TxtRole" FontSize="11"
+                       Foreground="#64748B"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Bouton déconnexion -->
+                        <Button Content="Déconnexion" Height="38"
+                                FontSize="13" FontWeight="SemiBold"
+                                Background="#FEE2E2" Foreground="#EF4444"
+                                BorderThickness="0" Cursor="Hand"
+                                Click="BtnDeconnexion_Click"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- ZONE CONTENU -->
+        <Frame Grid.Column="1" x:Name="MainFrame"
+               NavigationUIVisibility="Hidden"
+               Background="White"/>
+    </Grid>
+</Window>
