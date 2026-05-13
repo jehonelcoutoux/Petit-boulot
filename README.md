@@ -119,7 +119,7 @@ Installation du projet
 
 1️⃣ Cloner le projet
 Bash
-git clone https://github.com/votre-utilisateur/ptiboulot.git
+git clone https://github.com/jehonel/ptiboulot.git
 
 2️⃣ Ouvrir le projet
 Ouvrir la solution avec :
